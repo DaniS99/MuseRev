@@ -26,6 +26,24 @@
             >Home</a
           >
         </li>
+        <li>
+          <a
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            [routerLink]="['/about']"
+            >About</a
+          >
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-center">
+        <li>
+          <a
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Search</a
+          >
+        </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

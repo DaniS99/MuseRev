@@ -1,3 +1,24 @@
-<p>
-  home works!
-</p>
+<h1>Latest Music</h1>
+
+<ul *ngIf="list">
+  <li *ngFor="let song of list">
+    <p class="name">{{ song.header }}</p>
+    <p class="name">{{ song.title }}</p>
+    <p class="name">{{ song.artist }}</p>
+    <p class="name">{{ song.album }}</p>
+    <p class="name">{{ song.year }}</p>
+    <p class="name">{{ song.comment }}</p>
+    <p class="name">{{ song.zeroByte }}</p>
+    <p class="name">{{ song.track }}</p>
+    <p class="name">{{ song.genre }}</p>
+    <br />
+
+    <div *ngIf="song.review">
+      <ul>
+        <p class="name">{{ song.review.username }}</p>
+        <p class="name">{{ song.review.rating }}</p>
+        <p class="name">{{ song.review.comment }}</p>
+      </ul>
+    </div>
+  </li>
+</ul>

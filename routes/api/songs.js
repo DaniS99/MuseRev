@@ -5,20 +5,6 @@ const Reviews = mongoose.model("Reviews");
 
 router.post("/create", (req, res, next) => {
 	console.log(req.body);
-	//let song = req.body;
-	//console.log(song);
-	/*
-	const {
-		body: { song }
-	} = req;
-
-	console.log(song);
-
-	const fullSong = new Songs(song);
-
-	console.log(fullSong);
-
-	return fullSong.save().then(() => res.json({ song: fullSong.toAuthJSON() }));*/
 
 	let fullSong = new Songs({
 		header: req.body.header,
@@ -53,6 +39,13 @@ router.post("/createReview", (req, res, next) => {
 			return next(err);
 		}
 		res.send("Review addedd successfully");
+	});
+});
+
+router.get("/list", (req, res, next) => {
+	Songs.find(function(err, song) {
+		if (err) return next(err);
+		res.send(song);
 	});
 });
 

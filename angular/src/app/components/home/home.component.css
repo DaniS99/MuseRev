@@ -1,0 +1,40 @@
+/* Author: Scott Bolinger
+ * Author URI: http://apppresser.com
+ * 
+ * Styling for Display Posts Shortcode plugin for use with the AppTheme. Add this code to a child theme style.css file.
+ * Plugin information: http://www.billerickson.net/shortcode-to-display-posts/
+ *
+ */
+
+ul.display-posts-listing {
+  list-style-type: none;
+  padding: 0;
+}
+
+li.listing-item {
+  clear: both;
+  margin: 10px 0;
+  overflow: hidden;
+  list-style: none;
+  padding: 15px;
+  border: 1px solid #eee;
+}
+
+li.listing-item a.image {
+  float: left;
+  margin-right: 15px;
+}
+
+li.listing-item a.title {
+  font-weight: bold;
+}
+
+li.listing-item span.excerpt-dash {
+  display: none;
+}
+
+li.listing-item span.excerpt {
+  clear: right;
+  display: block;
+  margin-top: 10px;
+}

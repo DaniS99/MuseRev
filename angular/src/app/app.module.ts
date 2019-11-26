@@ -18,11 +18,15 @@ import { AuthService } from "./services/auth.service";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from "./guards/auth.guard";
+import { AboutComponent } from "./components/about/about.component";
+import { SearchComponent } from "./components/search/search.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
+  { path: "about", component: AboutComponent },
+  { path: "search", component: SearchComponent },
   { path: "current", component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
@@ -37,7 +41,9 @@ export function tokenGetter() {
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    AboutComponent,
+    SearchComponent
     //JwtHelperService
   ],
   imports: [
@@ -50,8 +56,8 @@ export function tokenGetter() {
       config: {
         tokenGetter: tokenGetter,
         whitelistedDomains: [
-          "localhost:4000",
           "localhost:8000",
+          "localhost:8080",
           "localhost:4200",
           "0.0.0.0:8080",
           "0.0.0.0:4200"
