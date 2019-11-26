@@ -18,8 +18,8 @@ const songsSchema = new mongoose.Schema({
 	year: { type: Number, required: true, max: this.year },
 	comment: { type: String, max: 30 },
 	zeroByte: { type: Number, max: 1 },
-	track: { type: Number, max: 2 },
-	genre: { type: Number, required: true, max: 1 },
+	track: { type: Number, max: 30 },
+	genre: { type: Number, required: true, max: 255 },
 	review: { type: reviewsSchema }
 });
 
