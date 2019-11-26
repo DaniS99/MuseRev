@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const router = require("express").Router();
 const Songs = mongoose.model("Songs");
+const Reviews = mongoose.model("Reviews");
 
 router.post("/create", (req, res, next) => {
 	let song = new Songs({
@@ -20,7 +21,21 @@ router.post("/create", (req, res, next) => {
 			return next(err);
 		}
 		res.send("Song addedd successfully");
-		console.log("Song addedd successfully");
+	});
+});
+
+router.post("/createReview", (req, res, next) => {
+	let review = new Reviews({
+		username: req.body.username,
+		rating: req.body.rating,
+		comment: req.body.comment
+	});
+
+	review.save(function(err) {
+		if (err) {
+			return next(err);
+		}
+		res.send("Review addedd successfully");
 	});
 });
 

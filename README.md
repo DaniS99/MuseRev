@@ -1,6 +1,6 @@
 # SE3316 Lab 5
 
-Full stakc web dev app
+Full stack web dev app
 
 ## Built With MEAN stack:
 
@@ -11,4 +11,4 @@ Full stakc web dev app
 
 ## Author
 
-- **Daniyal Syed**
+**Daniyal Syed**
