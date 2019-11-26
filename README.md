@@ -1,42 +1,14 @@
-# Passport-Tutorial
+# SE3316 Lab 5
 
-Node.js authentication tutorial using Passport.js
+Full stakc web dev app
 
-### Prerequisites
+## Built With MEAN stack:
 
-Make sure you have these installed on your machine
+- [MongoDB](https://www.mongodb.com/) - Database platform used
+- [Express.js](https://github.com/expressjs/express) - Node.js framework used
+- [Angular](https://www.angular.io/) - JavaScript visual framework
+- [Node.js](https://nodejs.org) - The backend framework used
 
-* [Node.js](https://nodejs.org/en/download/)
-* [MongoDB](https://www.mongodb.com)
-* **npm** This comes with Node.js, but make sure you check if you have it anyway
+## Author
 
-### Installing packages
-
-Install packages
-
-```
-npm i
-```
-
-### Running the app
-
-To run the app (dev. mode)
-
-```
-npm start
-```
-
-## Built With
-
-* [Node.js](https://nodejs.org) - The backend framework used
-* [Express.js](https://github.com/expressjs/express) - Node.js framework used
-* [MongoDB](https://www.mongodb.com/) - Database platform used
-
-
-## Authors
-
-* **Antonio Erdeljac** - *Initial work* - [Passport-Tutorial](https://github.com/AntonioErdeljac/Blog-Tutorial)
-
-## Acknowledgments
-
-* This was a tutorial for my [Medium article](https://medium.com/p/4a56ed18e81e)
+- **Daniyal Syed**
