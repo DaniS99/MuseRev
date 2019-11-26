@@ -51,34 +51,9 @@ mongoose.set("debug", true);
 
 //Models & routes
 require("./models/Users");
+require("./models/Songs");
 require("./config/passport");
 app.use(require("./routes"));
-/*
-//Error handlers & middlewares
-if (!isProduction) {
-	app.use((err, req, res) => {
-		res.status(err.status || 500);
-
-		res.json({
-			errors: {
-				message: err.message,
-				error: err
-			}
-		});
-	});
-}
-
-app.use((err, req, res) => {
-	res.status(err.status || 500);
-
-	res.json({
-		errors: {
-			message: err.message,
-			error: {}
-		}
-	});
-});
-*/
 
 //Error handlers & middlewares
 if (!isProduction) {
