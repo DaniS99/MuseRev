@@ -32,6 +32,7 @@ const appRoutes: Routes = [
   { path: "search", component: SearchComponent },
   { path: "admin", component: AdminComponent },
   { path: "dmca", component: DmcaComponent },
+  { path: "listing/:id", component: ListingComponent },
   { path: "current", component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 

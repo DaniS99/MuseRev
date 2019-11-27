@@ -1,22 +1,48 @@
-<li>
-  <p class="name">{{ song.header }}</p>
-  <p class="name">{{ song.title }}</p>
-  <p class="name">{{ song.artist }}</p>
-  <p class="name">{{ song.album }}</p>
-  <p class="name">{{ song.year }}</p>
-  <p class="name">{{ song.comment }}</p>
-  <p class="name">{{ song.zeroByte }}</p>
-  <p class="name">{{ song.track }}</p>
-  <p class="name">{{ song.genre }}</p>
+<div *ngIf="songData">
+  <p class="name">{{ songData.header }}</p>
+  <p class="name">{{ songData.title }}</p>
+  <p class="name">{{ songData.artist }}</p>
+  <p class="name">{{ songData.album }}</p>
+  <p class="name">{{ songData.year }}</p>
+  <p class="name">{{ songData.comment }}</p>
+  <p class="name">{{ songData.zeroByte }}</p>
+  <p class="name">{{ songData.track }}</p>
+  <p class="name">{{ songData.genre }}</p>
   <br />
 
   <h3>Reviews</h3>
 
-  <div *ngIf="song.review">
+  <div *ngIf="songData.review">
     <ul>
-      <p class="name">{{ song.review.username }}</p>
-      <p class="name">{{ song.review.rating }}</p>
-      <p class="name">{{ song.review.comment }}</p>
+      <p class="name">{{ songData.review.username }}</p>
+      <p class="name">{{ songData.review.rating }}</p>
+      <p class="name">{{ songData.review.comment }}</p>
     </ul>
   </div>
-</li>
+</div>
+
+<div *ngIf="song">
+  <li>
+    <a href="listing/{{ song._id }}">{{ song.title }}</a>
+    <p class="name">{{ song.header }}</p>
+    <p class="name">{{ song.title }}</p>
+    <p class="name">{{ song.artist }}</p>
+    <p class="name">{{ song.album }}</p>
+    <p class="name">{{ song.year }}</p>
+    <p class="name">{{ song.comment }}</p>
+    <p class="name">{{ song.zeroByte }}</p>
+    <p class="name">{{ song.track }}</p>
+    <p class="name">{{ song.genre }}</p>
+    <br />
+
+    <h3>Reviews</h3>
+
+    <div *ngIf="song.review">
+      <ul>
+        <p class="name">{{ song.review.username }}</p>
+        <p class="name">{{ song.review.rating }}</p>
+        <p class="name">{{ song.review.comment }}</p>
+      </ul>
+    </div>
+  </li>
+</div>

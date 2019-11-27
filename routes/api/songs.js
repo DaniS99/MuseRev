@@ -50,6 +50,14 @@ router.get("/list", (req, res, next) => {
 	});
 });
 
+router.get("/:id", (req, res, next) => {
+	Songs.findById(req.params.id, (err, data) => {
+		//console.log(data);
+		res.send(data);
+		return;
+	});
+});
+
 router.put("/:id", (req, res, next) => {
 	/*
 	Songs.findByIdAndUpdate(
