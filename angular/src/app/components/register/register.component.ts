@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
   onSignUp() {
     let url = "http://localhost:8000/api/users";
 
-    //this.user.email = this.email;
     const fillUser = {
       user: {
         email: this.email,

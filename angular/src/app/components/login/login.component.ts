@@ -35,6 +35,11 @@ export class LoginComponent implements OnInit {
         console.log(response);
         console.log("Worked!");
         this.authService.storeToken(response);
+
+        // check if isAdmin == true
+        // Might want to change POST method to create users to return object ID
+        // Then use that ID to reference its isAdmin property and route user accordingly
+
         this.router.navigate(["current"]);
       },
       error => {

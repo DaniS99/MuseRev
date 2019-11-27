@@ -20,6 +20,9 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from "./guards/auth.guard";
 import { AboutComponent } from "./components/about/about.component";
 import { SearchComponent } from "./components/search/search.component";
+import { ListingComponent } from "./components/listing/listing.component";
+import { AdminComponent } from "./components/admin/admin.component";
+import { DmcaComponent } from "./components/dmca/dmca.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -27,6 +30,8 @@ const appRoutes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "about", component: AboutComponent },
   { path: "search", component: SearchComponent },
+  { path: "admin", component: AdminComponent },
+  { path: "dmca", component: DmcaComponent },
   { path: "current", component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
@@ -43,7 +48,10 @@ export function tokenGetter() {
     HomeComponent,
     DashboardComponent,
     AboutComponent,
-    SearchComponent
+    SearchComponent,
+    ListingComponent,
+    AdminComponent,
+    DmcaComponent
     //JwtHelperService
   ],
   imports: [
