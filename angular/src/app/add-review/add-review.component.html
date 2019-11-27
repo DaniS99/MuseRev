@@ -1,0 +1,41 @@
+<app-listing></app-listing>
+<hr />
+
+<h3>Add A Review:</h3>
+
+<form (submit)="onReview()">
+  <div class="form-group">
+    <label>Username</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="username"
+      name="email"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Rating</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="rating"
+      name="rating"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Comment</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="comment"
+      name="comment"
+      required
+    />
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Submit" />
+</form>

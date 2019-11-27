@@ -8,8 +8,8 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./listing.component.css"]
 })
 export class ListingComponent implements OnInit {
-  @Input("song") song: any;
-  // Bind property from upper component app-home
+  @Input("song") song: any; // Bind property from upper component app-home
+  @Input("songDataPassed") songDataPassed: any;
 
   songData: Object;
   url = "http://localhost:8000/api/songs/"; // Missing :id field
@@ -17,12 +17,20 @@ export class ListingComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log(this.url);
+    //console.log(this.url);
     let idURL = this.route.snapshot.params["id"]; // Gets object id from link
+    //console.log(idURL);
 
-    this.http.get(this.url + idURL).subscribe(data => {
-      this.songData = data;
-    });
+    if (!this.songDataPassed) {
+      this.http.get(this.url + idURL).subscribe(data => {
+        this.songData = data;
+      });
+    } else {
+      this.songData = this.songDataPassed;
+      this.http.get(this.url + idURL).subscribe(data => {
+        this.songData = data;
+      });
+    }
   }
 
   renderSong() {

@@ -2,7 +2,10 @@
 
 <ul *ngFor="let song of list">
   <app-listing [song]="song"></app-listing>
-
+  <br />
+  <a href="current/{{ song._id }}">Add review</a>
+  <hr />
+  <!--
   <form (submit)="onSignUp()">
     <div class="form-group">
       <label>Username</label>
@@ -36,7 +39,7 @@
         required
       />
     </div>
-  </form>
 
-  <input type="submit" class="btn btn-primary" value="Submit" />
-</ul>
+    <input type="submit" class="btn btn-primary" value="Submit" />
+  </form>
+--></ul>
