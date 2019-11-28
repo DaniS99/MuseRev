@@ -18,15 +18,16 @@ const noticeSchema = new mongoose.Schema({
 
 const songsSchema = new mongoose.Schema({
 	header: { type: String, max: 3 },
-	title: { type: String, required: true, max: 30 },
-	artist: { type: String, required: true, max: 30 },
+	title: { type: String, max: 30 },
+	artist: { type: String, max: 30 },
 	album: { type: String, max: 30 },
 	year: { type: Number, max: this.year },
 	comment: { type: String, max: 30 },
 	zeroByte: { type: Number, max: 1 },
 	track: { type: Number, max: 30 },
 	genre: { type: Number, max: 255 },
-	review: { type: reviewsSchema },
+	//review: { type: reviewsSchema },
+	review: { type: Array },
 	notice: { type: noticeSchema }
 });
 

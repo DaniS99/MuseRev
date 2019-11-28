@@ -3,6 +3,7 @@ const router = require("express").Router();
 const Songs = mongoose.model("Songs");
 const Reviews = mongoose.model("Reviews");
 const Notices = mongoose.model("Notices");
+const { MongoClient, ObjectID } = require("mongodb");
 
 router.post("/create", (req, res, next) => {
 	//console.log(req);
@@ -59,31 +60,18 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.put("/:id", (req, res, next) => {
-	/*
-	Songs.findByIdAndUpdate(
-		{ _id: req.params.id },
-		req.body.then(function(song) {
-			Songs.findOne({ _id: req.params.id }).then(function(song) {
-				res.send(song);
-			});
-		})
-	);*/
-	/*
-	let requestId = req.params.id;
+	Songs.findOne({ _id: req.params.id }, function(err, data) {
+		//if (err) res.send(err);
+		let newReview = req.body.review;
+		data.review.push(newReview);
 
-	let song = songs.filter();
-
-	let fullSong = new Songs({
-		review: req.body.review
+		// after you finish editing, you can save it to database or send it to client
+		data.save(function(err) {
+			if (err) return res.send(err);
+			res.send(data);
+			//return res.json({ message: "User updated!" });
+		});
 	});
-
-	fullSong.save(function(err) {
-		if (err) {
-			return next(err);
-		}
-		res.send("Song addedd successfully");
-	});
-	*/
 });
 
 router.post("/createNotice", (req, res, next) => {

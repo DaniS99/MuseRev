@@ -19,18 +19,10 @@ export class ListingComponent implements OnInit {
   ngOnInit() {
     //console.log(this.url);
     let idURL = this.route.snapshot.params["id"]; // Gets object id from link
-    //console.log(idURL);
 
-    if (!this.songDataPassed) {
-      this.http.get(this.url + idURL).subscribe(data => {
-        this.songData = data;
-      });
-    } else {
-      this.songData = this.songDataPassed;
-      this.http.get(this.url + idURL).subscribe(data => {
-        this.songData = data;
-      });
-    }
+    this.http.get(this.url + idURL).subscribe(data => {
+      this.songData = data;
+    });
   }
 
   renderSong() {

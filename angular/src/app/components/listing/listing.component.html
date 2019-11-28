@@ -14,10 +14,11 @@
   <h3>Reviews</h3>
 
   <div *ngIf="songData.review">
-    <ul>
-      <p class="name">{{ songData.review.username }}</p>
-      <p class="name">{{ songData.review.rating }}</p>
-      <p class="name">{{ songData.review.comment }}</p>
+    <ul *ngFor="let single of songData.review">
+      <p class="name">{{ single.username }}</p>
+      <p class="name">{{ single.rating }}</p>
+      <p class="name">{{ single.comment }}</p>
+      <hr />
     </ul>
   </div>
 </div>
@@ -41,10 +42,11 @@
     <h3>Reviews</h3>
 
     <div *ngIf="song.review">
-      <ul>
-        <p class="name">{{ song.review.username }}</p>
-        <p class="name">{{ song.review.rating }}</p>
-        <p class="name">{{ song.review.comment }}</p>
+      <ul *ngFor="let single of song.review">
+        <p class="name">{{ single.username }}</p>
+        <p class="name">{{ single.rating }}</p>
+        <p class="name">{{ single.comment }}</p>
+        <hr />
       </ul>
     </div>
   </li>
