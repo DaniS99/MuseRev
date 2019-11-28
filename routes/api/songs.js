@@ -61,7 +61,6 @@ router.get("/:id", (req, res, next) => {
 
 router.put("/:id", (req, res, next) => {
 	Songs.findOne({ _id: req.params.id }, function(err, data) {
-		//if (err) res.send(err);
 		let newReview = req.body.review;
 		data.review.push(newReview);
 
@@ -69,7 +68,19 @@ router.put("/:id", (req, res, next) => {
 		data.save(function(err) {
 			if (err) return res.send(err);
 			res.send(data);
-			//return res.json({ message: "User updated!" });
+		});
+	});
+});
+
+router.put("/createNotice/:id", (req, res, next) => {
+	Songs.findOne({ _id: req.params.id }, function(err, data) {
+		let newNotice = req.body.notice;
+		data.notice.push(newNotice);
+
+		// after you finish editing, you can save it to database or send it to client
+		data.save(function(err) {
+			if (err) return res.send(err);
+			res.send(data);
 		});
 	});
 });

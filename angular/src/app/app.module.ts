@@ -24,6 +24,7 @@ import { ListingComponent } from "./components/listing/listing.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { DmcaComponent } from "./components/dmca/dmca.component";
 import { AddReviewComponent } from "./add-review/add-review.component";
+import { AddNoticeComponent } from "./add-notice/add-notice.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
   { path: "dmca", component: DmcaComponent },
   { path: "listing/:id", component: ListingComponent },
   { path: "current/:id", component: AddReviewComponent },
+  { path: "dmca/:id", component: AddNoticeComponent },
   { path: "current", component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
@@ -55,7 +57,8 @@ export function tokenGetter() {
     ListingComponent,
     AdminComponent,
     DmcaComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    AddNoticeComponent
     //JwtHelperService
   ],
   imports: [

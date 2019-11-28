@@ -1,0 +1,35 @@
+<app-listing></app-listing>
+
+<!--
+<h3>DMCA Notice Issued:</h3>
+
+
+<div *ngIf="song.notice">
+  <ul>
+    <p class="name">Date Request Received: {{ song.notice.dateRec }}</p>
+    <p class="name">Date Notice Sent: {{ song.notice.dateSent }}</p>
+    <p class="name">Date Dispute Received: {{ song.notice.dateDisRec }}</p>
+  </ul>
+</div>
+-->
+
+<h3>Issue DMCA Notice:</h3>
+
+<form (submit)="onIssue()">
+  <div class="form-group">
+    <label>Date Request Received: </label>
+    <input type="date" [(ngModel)]="dateRec" name="dateRec" />
+  </div>
+
+  <div class="form-group">
+    <label>Date Notice Sent: </label>
+    <input type="date" [(ngModel)]="dateSent" name="dateSent" />
+  </div>
+
+  <div class="form-group">
+    <label>Date Dispute Received: </label>
+    <input type="date" [(ngModel)]="dateDisRec" name="dateDisRec" />
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Submit" />
+</form>

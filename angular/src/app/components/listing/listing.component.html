@@ -1,23 +1,42 @@
 <!-- Local data for a single song display -->
 <div *ngIf="songData">
-  <p class="name">{{ songData.header }}</p>
-  <p class="name">{{ songData.title }}</p>
-  <p class="name">{{ songData.artist }}</p>
-  <p class="name">{{ songData.album }}</p>
-  <p class="name">{{ songData.year }}</p>
-  <p class="name">{{ songData.comment }}</p>
-  <p class="name">{{ songData.zeroByte }}</p>
-  <p class="name">{{ songData.track }}</p>
-  <p class="name">{{ songData.genre }}</p>
+  <p class="name"><strong>Header: </strong>{{ songData.header }}</p>
+  <p class="name"><strong>Title: </strong>{{ songData.title }}</p>
+  <p class="name"><strong>Artist: </strong>{{ songData.artist }}</p>
+  <p class="name"><strong>Album: </strong>{{ songData.album }}</p>
+  <p class="name"><strong>Year: </strong>{{ songData.year }}</p>
+  <p class="name"><strong>Comment: </strong>{{ songData.comment }}</p>
+  <p class="name"><strong>zeroByte: </strong>{{ songData.zeroByte }}</p>
+  <p class="name"><strong>Track: </strong>{{ songData.track }}</p>
+  <p class="name"><strong>Genre: </strong>{{ songData.genre }}</p>
   <br />
 
   <h3>Reviews</h3>
+  <hr />
 
   <div *ngIf="songData.review">
     <ul *ngFor="let single of songData.review">
-      <p class="name">{{ single.username }}</p>
-      <p class="name">{{ single.rating }}</p>
-      <p class="name">{{ single.comment }}</p>
+      <p class="name"><strong>Username: </strong>{{ single.username }}</p>
+      <p class="name"><strong>Rating: </strong>{{ single.rating }}</p>
+      <p class="name"><strong>Comment: </strong>{{ single.comment }}</p>
+      <hr />
+    </ul>
+  </div>
+
+  <div *ngIf="songData.notice.length > 0">
+    <h3>Copyright Strike</h3>
+    <hr />
+
+    <ul *ngFor="let single of songData.notice">
+      <p class="name">
+        <strong>Date Request Received: </strong>{{ single.dateRec }}
+      </p>
+      <p class="name">
+        <strong>Date Notice Sent: </strong>{{ single.dateSent }}
+      </p>
+      <p class="name">
+        <strong>Date Dispute Received: </strong>{{ single.dateDisRec }}
+      </p>
       <hr />
     </ul>
   </div>
@@ -28,26 +47,5 @@
 <div *ngIf="song">
   <li>
     <a href="listing/{{ song._id }}">{{ song.title }}</a>
-    <p class="name">{{ song.header }}</p>
-    <p class="name">{{ song.title }}</p>
-    <p class="name">{{ song.artist }}</p>
-    <p class="name">{{ song.album }}</p>
-    <p class="name">{{ song.year }}</p>
-    <p class="name">{{ song.comment }}</p>
-    <p class="name">{{ song.zeroByte }}</p>
-    <p class="name">{{ song.track }}</p>
-    <p class="name">{{ song.genre }}</p>
-    <br />
-
-    <h3>Reviews</h3>
-
-    <div *ngIf="song.review">
-      <ul *ngFor="let single of song.review">
-        <p class="name">{{ single.username }}</p>
-        <p class="name">{{ single.rating }}</p>
-        <p class="name">{{ single.comment }}</p>
-        <hr />
-      </ul>
-    </div>
   </li>
 </div>
