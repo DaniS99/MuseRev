@@ -17,18 +17,42 @@ const noticeSchema = new mongoose.Schema({
 });
 
 const songsSchema = new mongoose.Schema({
-	header: { type: String, max: 3 },
-	title: { type: String, max: 30 },
-	artist: { type: String, max: 30 },
-	album: { type: String, max: 30 },
+	header: { type: String, max: 3 }, //, index: true, text: true },
+	title: { type: String, max: 30 }, //, index: true, text: true },
+	artist: { type: String, max: 30 }, //, index: true, text: true },
+	album: { type: String, max: 30 }, //, index: true, text: true },
 	year: { type: Number, max: this.year },
-	comment: { type: String, max: 30 },
+	comment: { type: String, max: 30 }, //, index: true, text: true },
 	zeroByte: { type: Number, max: 1 },
 	track: { type: Number, max: 30 },
 	genre: { type: Number, max: 255 },
 	review: { type: Array },
 	notice: { type: Array }
 });
+
+songsSchema.set("autoIndex", false);
+//songsSchema.set("useCreateIndex", true);
+songsSchema.index({
+	//header: "text",
+	title: "text",
+	artist: "text"
+	//album: "text",
+	//comment: "text"
+});
+
+//songsSchema.dropIndex("artist_text");
+
+//songsSchema.dropIndex("title_text");
+/*
+songsSchema.createIndex({
+	title: "text",
+	content: "text",
+	description: "text"
+});
+*/
+//songsSchema.index({ artist: "text" });
+
+//
 
 // Export the model
 module.exports = mongoose.model("Songs", songsSchema);

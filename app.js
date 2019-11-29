@@ -39,7 +39,8 @@ if (!isProduction) {
 //Configure Mongoose
 //mongoose.connect("mongodb://localhost/passport-tutorial");
 const uri =
-	"mongodb+srv://se3316:lab5@clusterdb-nyt2p.mongodb.net/test?retryWrites=true&w=majority";
+	"mongodb+srv://se3316:lab5@clusterdb-nyt2p.mongodb.net/test?w=majority";
+//const uri = "mongodb+srv://se3316:lab5@clusterdb-nyt2p.mongodb.net/test?retryWrites=true&w=majority";
 //use your own URI from mongoDB atlas
 // --------------------------------------------
 

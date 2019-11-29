@@ -9,6 +9,6 @@ Full stack web dev app
 - [Angular](https://www.angular.io/) - JavaScript visual framework
 - [Node.js](https://nodejs.org) - The backend framework used
 
-## Author
+## Developer
 
 **Daniyal Syed**

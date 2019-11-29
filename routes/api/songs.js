@@ -100,4 +100,29 @@ router.post("/createNotice", (req, res, next) => {
 	});
 });
 
+router.post("/find", (req, res, next) => {
+	//var query = req.params.query;
+	var query = req.body.query;
+
+	Songs.find(
+		{
+			$text: {
+				$search: query
+			}
+		},
+		function(err, result) {
+			if (err) throw err;
+			if (result) {
+				res.json(result);
+			} else {
+				res.send(
+					JSON.stringify({
+						error: "Error"
+					})
+				);
+			}
+		}
+	);
+});
+
 module.exports = router;
