@@ -6,3 +6,94 @@
   <a href="current/{{ song._id }}">Add review</a>
   <hr />
 </ul>
+
+<h1>Add A Song</h1>
+
+<form (submit)="onSong()">
+  <div class="form-group">
+    <label>Header</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="header"
+      name="header"
+      maxlength="3"
+    />
+
+    <label>Title</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="title"
+      name="title"
+      required
+      maxlength="30"
+    />
+
+    <label>Artist</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="artist"
+      name="artist"
+      required
+      maxlength="30"
+    />
+
+    <label>Album</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="album"
+      name="album"
+      maxlength="30"
+    />
+
+    <label>Year</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="year"
+      name="year"
+      maxlength="getYear()"
+    />
+
+    <label>Comment</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="comment"
+      name="comment"
+      maxlength="30"
+    />
+
+    <label>Zero Byte</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="zeroByte"
+      name="zeroByte"
+      maxlength="1"
+    />
+
+    <label>Track</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="track"
+      name="track"
+      maxlength="30"
+    />
+
+    <label>Genre</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="genre"
+      name="genre"
+      maxlength="255"
+    />
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Submit" />
+</form>

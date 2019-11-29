@@ -26,10 +26,8 @@ const songsSchema = new mongoose.Schema({
 	zeroByte: { type: Number, max: 1 },
 	track: { type: Number, max: 30 },
 	genre: { type: Number, max: 255 },
-	//review: { type: reviewsSchema },
 	review: { type: Array },
 	notice: { type: Array }
-	//notice: { type: noticeSchema }
 });
 
 // Export the model

@@ -21,11 +21,11 @@ router.post("/create", (req, res, next) => {
 		notice: req.body.notice
 	});
 
-	fullSong.save(function(err) {
+	fullSong.save(function(err, data) {
 		if (err) {
 			return next(err);
 		}
-		res.send("Song addedd successfully");
+		res.send(data);
 	});
 });
 

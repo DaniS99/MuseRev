@@ -13,9 +13,22 @@ export class DashboardComponent implements OnInit {
   listURL = "http://localhost:8000/api/songs/list";
   list: Object;
 
-  username: String;
-  rating: Number;
+  createURL = "http://localhost:8000/api/songs/create";
+
+  // Elements for adding a song from dashboard
+  header: String;
+  title: String;
+  artist: String;
+  album: String;
+  year: Number;
   comment: String;
+  zeroByte: Number;
+  track: Number;
+  genre: Number;
+
+  //username: String;
+  //rating: Number;
+  //comment: String;
 
   constructor(
     private authService: AuthService,
@@ -51,6 +64,40 @@ export class DashboardComponent implements OnInit {
       this.list = data;
       console.log(this.list);
     });
+  }
+
+  getYear() {
+    var date = new Date();
+    console.log(date.getFullYear);
+    return date.getFullYear();
+  }
+
+  onSong() {
+    let holdRes;
+
+    const newSong = {
+      header: this.header,
+      title: this.title,
+      artist: this.artist,
+      album: this.album,
+      year: this.year,
+      comment: this.comment,
+      zeroByte: this.zeroByte,
+      track: this.track,
+      genre: this.genre
+    };
+
+    this.http.post(this.createURL, newSong).subscribe(
+      response => {
+        holdRes = response;
+        console.log(holdRes._id);
+
+        this.router.navigate(["current/" + holdRes._id]);
+      },
+      error => console.log(error)
+    );
+
+    console.log("Added Song!");
 
     //
   }
