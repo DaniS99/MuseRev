@@ -36,13 +36,18 @@
         </li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-center">
+      <ul class="nav navbar-nav">
         <li>
-          <a
-            [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Search</a
-          >
+          <form (submit)="onEnter()">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="search"
+              [(ngModel)]="search"
+              name="search"
+              style="margin: 7.5px;"
+            />
+          </form>
         </li>
       </ul>
 

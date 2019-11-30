@@ -47,5 +47,9 @@
 <div *ngIf="song">
   <li>
     <a href="listing/{{ song._id }}">{{ song.title }}</a>
+    <br />
+    <a href="listing/{{ song._id }}"
+      ><em>{{ song.artist }}</em></a
+    >
   </li>
 </div>

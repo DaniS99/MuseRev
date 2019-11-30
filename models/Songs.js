@@ -30,14 +30,16 @@ const songsSchema = new mongoose.Schema({
 	notice: { type: Array }
 });
 
-songsSchema.set("autoIndex", false);
+//songsSchema.set("autoIndex", false);
 //songsSchema.set("useCreateIndex", true);
 songsSchema.index({
-	//header: "text",
+	header: "text",
 	title: "text",
-	artist: "text"
-	//album: "text",
-	//comment: "text"
+	artist: "text",
+	album: "text",
+	year: "text",
+	comment: "text",
+	genre: "text"
 });
 
 //songsSchema.dropIndex("artist_text");

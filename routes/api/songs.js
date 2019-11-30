@@ -103,6 +103,8 @@ router.post("/createNotice", (req, res, next) => {
 router.post("/find", (req, res, next) => {
 	//var query = req.params.query;
 	var query = req.body.query;
+	//res.send(query);
+	//res.send(req.body);
 
 	Songs.find(
 		{
@@ -114,6 +116,7 @@ router.post("/find", (req, res, next) => {
 			if (err) throw err;
 			if (result) {
 				res.json(result);
+				//res.send(result);
 			} else {
 				res.send(
 					JSON.stringify({
