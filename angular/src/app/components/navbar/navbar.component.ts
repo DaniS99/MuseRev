@@ -43,6 +43,8 @@ export class NavbarComponent implements OnInit {
     this.http.post(this.url, queryObj).subscribe(
       (response: any) => {
         //console.log(response["0"]._id);
+        // Querying MongoDB return an object with first index containing highest priority response object
+        // Navigate to the link of that searched song sobject
         this.router.navigate(["current/" + response["0"]._id]);
       },
       error => console.log(error)

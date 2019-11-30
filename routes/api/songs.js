@@ -160,6 +160,7 @@ router.put("/updatePolicy/:id", (req, res, next) => {
 	);
 });
 
+// Has to be last for some reason
 router.put("/:id", (req, res, next) => {
 	Songs.findOne({ _id: req.params.id }, function(err, data) {
 		let newReview = req.body.review;
@@ -168,7 +169,7 @@ router.put("/:id", (req, res, next) => {
 		// after you finish editing, you can save it to database or send it to client
 		data.save(function(err) {
 			if (err) return res.send(err);
-			res.send(data);
+			res.send(Boolean([data]));
 		});
 	});
 });

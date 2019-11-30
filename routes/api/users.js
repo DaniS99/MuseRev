@@ -94,4 +94,20 @@ router.get("/current", auth.required, (req, res, next) => {
 	});
 });
 
+router.get("/checkAdmin", auth.required, (req, res, next) => {
+	const {
+		payload: { id }
+	} = req;
+
+	return Users.findById(id).then(user => {
+		if (!user) {
+			return res.sendStatus(400);
+		}
+
+		var bool = Boolean(user.isAdmin);
+
+		return res.send(bool);
+	});
+});
+
 module.exports = router;
