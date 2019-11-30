@@ -19,19 +19,17 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from "./guards/auth.guard";
 import { AboutComponent } from "./components/about/about.component";
-import { SearchComponent } from "./components/search/search.component";
 import { ListingComponent } from "./components/listing/listing.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { DmcaComponent } from "./components/dmca/dmca.component";
-import { AddReviewComponent } from "./add-review/add-review.component";
-import { AddNoticeComponent } from "./add-notice/add-notice.component";
+import { AddReviewComponent } from "./components/add-review/add-review.component";
+import { AddNoticeComponent } from "./components/add-notice/add-notice.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   { path: "about", component: AboutComponent },
-  { path: "search", component: SearchComponent },
   { path: "admin", component: AdminComponent },
   { path: "dmca", component: DmcaComponent },
   { path: "listing/:id", component: ListingComponent },
@@ -53,7 +51,6 @@ export function tokenGetter() {
     HomeComponent,
     DashboardComponent,
     AboutComponent,
-    SearchComponent,
     ListingComponent,
     AdminComponent,
     DmcaComponent,

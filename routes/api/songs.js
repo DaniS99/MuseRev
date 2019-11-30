@@ -3,6 +3,7 @@ const router = require("express").Router();
 const Songs = mongoose.model("Songs");
 const Reviews = mongoose.model("Reviews");
 const Notices = mongoose.model("Notices");
+const Policy = mongoose.model("Policy");
 const { MongoClient, ObjectID } = require("mongodb");
 
 router.post("/create", (req, res, next) => {
@@ -17,6 +18,7 @@ router.post("/create", (req, res, next) => {
 		zeroByte: req.body.zeroByte,
 		track: req.body.track,
 		genre: req.body.genre,
+		isVisible: true,
 		review: req.body.review,
 		notice: req.body.notice
 	});
@@ -56,19 +58,6 @@ router.get("/:id", (req, res, next) => {
 		//console.log(data);
 		res.send(data);
 		return;
-	});
-});
-
-router.put("/:id", (req, res, next) => {
-	Songs.findOne({ _id: req.params.id }, function(err, data) {
-		let newReview = req.body.review;
-		data.review.push(newReview);
-
-		// after you finish editing, you can save it to database or send it to client
-		data.save(function(err) {
-			if (err) return res.send(err);
-			res.send(data);
-		});
 	});
 });
 
@@ -126,6 +115,62 @@ router.post("/find", (req, res, next) => {
 			}
 		}
 	);
+});
+
+router.post("/createPolicy", (req, res, next) => {
+	let policy = new Policy({
+		policy: req.body.policy
+	});
+
+	policy.save(function(err) {
+		if (err) {
+			return next(err);
+		}
+		res.send("Policy addedd successfully");
+	});
+});
+
+router.post("/listPolicy", (req, res, next) => {
+	Policy.find(function(err, policy) {
+		if (err) return next(err);
+		res.send(policy);
+	});
+});
+
+router.put("/updatePolicy/:id", (req, res, next) => {
+	let privacy = req.body.policy;
+	let dmca = req.body.policy;
+
+	Policy.findByIdAndUpdate(
+		// the id of the item to find
+		req.params.id,
+
+		// the change to be made
+		req.body,
+
+		// ask mongoose to return the updated version
+		{ new: true },
+
+		// the callback function
+		(err, todo) => {
+			// Handle any possible database errors
+			if (err) return res.status(500).send(err);
+			return res.send(todo);
+		}
+	);
+});
+
+router.put("/:id", (req, res, next) => {
+	Songs.findOne({ _id: req.params.id }, function(err, data) {
+		let newReview = req.body.review;
+		data.review.push(newReview);
+
+		// after you finish editing, you can save it to database or send it to client
+		data.save(function(err) {
+			if (err) return res.send(err);
+			res.send(data);
+		});
+	});
 });
 
 module.exports = router;

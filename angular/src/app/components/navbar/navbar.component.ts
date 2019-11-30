@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
-import { async } from "q";
 
 @Component({
   selector: "app-navbar",

@@ -16,6 +16,10 @@ const noticeSchema = new mongoose.Schema({
 	dateDisRec: { type: Date }
 });
 
+const policySchema = new mongoose.Schema({
+	policy: { type: String }
+});
+
 const songsSchema = new mongoose.Schema({
 	header: { type: String, max: 3 }, //, index: true, text: true },
 	title: { type: String, max: 30 }, //, index: true, text: true },
@@ -26,6 +30,7 @@ const songsSchema = new mongoose.Schema({
 	zeroByte: { type: Number, max: 1 },
 	track: { type: Number, max: 30 },
 	genre: { type: Number, max: 255 },
+	isVisible: { type: Boolean },
 	review: { type: Array },
 	notice: { type: Array }
 });
@@ -60,3 +65,4 @@ songsSchema.createIndex({
 module.exports = mongoose.model("Songs", songsSchema);
 module.exports = mongoose.model("Reviews", reviewsSchema);
 module.exports = mongoose.model("Notices", noticeSchema);
+module.exports = mongoose.model("Policy", policySchema);
