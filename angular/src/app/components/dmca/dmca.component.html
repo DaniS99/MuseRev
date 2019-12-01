@@ -2,6 +2,9 @@
 
 <ul *ngFor="let song of list">
   <app-listing [song]="song"></app-listing>
-  <a href="dmca/{{ song._id }}">Issue Notice</a>
-  <hr />
+  <div *ngIf="song.isVisible">
+    <br />
+    <a href="dmca/{{ song._id }}">Issue Notice</a>
+    <hr />
+  </div>
 </ul>
