@@ -7,9 +7,18 @@ const Songs = mongoose.model("Songs");
 
 //POST new user route (optional, everyone has access)
 router.post("/", auth.optional, (req, res, next) => {
-	const {
+	let {
 		body: { user }
 	} = req;
+
+	//user = new Users({
+	//email: req.body.email,
+	//hash: req.body.hash,
+	//salt: req.body.salt,
+
+	//});
+
+	//res.send(user);
 
 	if (!user.email) {
 		return res.status(422).json({
@@ -27,6 +36,10 @@ router.post("/", auth.optional, (req, res, next) => {
 		});
 	}
 
+	user["isAdmin"] = false;
+	user["isActive"] = true;
+
+	//const finalUser = new Users(user);
 	const finalUser = new Users(user);
 
 	finalUser.setPassword(user.password);
