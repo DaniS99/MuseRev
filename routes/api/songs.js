@@ -160,6 +160,26 @@ router.put("/updatePolicy/:id", (req, res, next) => {
 	);
 });
 
+router.put("/visibility/:id", (req, res, next) => {
+	Songs.findByIdAndUpdate(
+		// the id of the item to find
+		req.params.id,
+
+		// the change to be made
+		req.body,
+
+		// ask mongoose to return the updated version
+		{ new: true },
+
+		// the callback function
+		(err, todo) => {
+			// Handle any possible database errors
+			if (err) return res.status(500).send(err);
+			return res.send(todo);
+		}
+	);
+});
+
 // Has to be last for some reason
 router.put("/:id", (req, res, next) => {
 	Songs.findOne({ _id: req.params.id }, function(err, data) {
@@ -169,7 +189,8 @@ router.put("/:id", (req, res, next) => {
 		// after you finish editing, you can save it to database or send it to client
 		data.save(function(err) {
 			if (err) return res.send(err);
-			res.send(Boolean([data]));
+			//res.send(Boolean([data]));
+			res.send(data);
 		});
 	});
 });

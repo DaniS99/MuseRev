@@ -8,7 +8,6 @@ import { HttpClient } from "@angular/common/http";
 })
 export class HomeComponent implements OnInit {
   list: Object;
-
   url = "http://localhost:8000/api/songs/list";
 
   constructor(private http: HttpClient) {}

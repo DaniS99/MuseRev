@@ -1,0 +1,10 @@
+<h1>Set Song Visibilty</h1>
+
+<ul *ngFor="let songDisplay of list">
+  <input
+    type="checkbox"
+    [(ngModel)]="songDisplay.isVisible"
+    (click)="toggleVisibility(songDisplay)"
+  />
+  <app-listing [songDisplay]="songDisplay"></app-listing>
+</ul>

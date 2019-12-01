@@ -32,7 +32,8 @@ const songsSchema = new mongoose.Schema({
 	genre: { type: Number, max: 255 },
 	isVisible: { type: Boolean },
 	review: { type: Array },
-	notice: { type: Array }
+	notice: { type: Array },
+	isVisible: Boolean
 });
 
 //songsSchema.set("autoIndex", false);

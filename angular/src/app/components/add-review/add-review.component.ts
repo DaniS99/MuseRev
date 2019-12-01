@@ -67,7 +67,7 @@ export class AddReviewComponent implements OnInit {
     this.http.put(this.url + this.idURL, newReview).subscribe(
       response => {
         console.log(response);
-        this.router.navigate(["current/" + this.idURL]);
+        //this.router.navigate(["current/" + this.idURL]);
       },
       error => console.log(error)
     );

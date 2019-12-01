@@ -10,6 +10,7 @@ import { ActivatedRoute } from "@angular/router";
 export class ListingComponent implements OnInit {
   @Input("song") song: any; // Bind property from upper component app-home
   @Input("songDataPassed") songDataPassed: any;
+  @Input("songDisplay") songDisplay: any;
 
   songData: Object;
   url = "http://localhost:8000/api/songs/"; // Missing :id field

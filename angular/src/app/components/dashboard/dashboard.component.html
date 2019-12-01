@@ -2,9 +2,11 @@
 
 <ul *ngFor="let song of list">
   <app-listing [song]="song"></app-listing>
-  <br />
-  <a href="current/{{ song._id }}">Add review</a>
-  <hr />
+  <div *ngIf="song.isVisible">
+    <br />
+    <a href="current/{{ song._id }}">Add review</a>
+    <hr />
+  </div>
 </ul>
 
 <h1>Add A Song</h1>

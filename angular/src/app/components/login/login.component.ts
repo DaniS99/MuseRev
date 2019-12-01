@@ -73,27 +73,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-  isAdmin() {
-    let adminURL = "http://localhost:8000/api/users/checkAdmin";
-    let check = false;
-
-    let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append("Content-Type", "application/json");
-    headers = headers.append("Authorization", "Token " + this.token);
-
-    this.http.get(adminURL, { headers: headers }).subscribe(
-      response => {
-        console.log(response);
-        if (response) {
-          return response;
-        } else {
-          return false;
-        } //console.log("Successful Auth!");
-      },
-      error => {
-        //console.log("Failed");
-      }
-    );
-  }
 }

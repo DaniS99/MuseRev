@@ -14,7 +14,7 @@
   <h3>Reviews</h3>
   <hr />
 
-  <div *ngIf="songData.review">
+  <div *ngIf="songData.review.length > 0">
     <ul *ngFor="let single of songData.review">
       <p class="name"><strong>Username: </strong>{{ single.username }}</p>
       <p class="name"><strong>Rating: </strong>{{ single.rating }}</p>
@@ -43,13 +43,25 @@
 </div>
 
 <!-- For enire list of songs on home page -->
-
 <div *ngIf="song">
+  <div *ngIf="song.isVisible">
+    <li>
+      <a href="listing/{{ song._id }}">{{ song.title }}</a>
+      <br />
+      <a href="listing/{{ song._id }}"
+        ><em>{{ song.artist }}</em></a
+      >
+    </li>
+  </div>
+</div>
+
+<!-- To set visibility on display page -->
+<div *ngIf="songDisplay">
   <li>
-    <a href="listing/{{ song._id }}">{{ song.title }}</a>
+    {{ songDisplay.title }}
     <br />
-    <a href="listing/{{ song._id }}"
-      ><em>{{ song.artist }}</em></a
-    >
+    <em>{{ songDisplay.artist }}</em>
+    <br />
+    <p>Visible: {{ songDisplay.isVisible }}</p>
   </li>
 </div>
