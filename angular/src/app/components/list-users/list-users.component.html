@@ -1,1 +1,14 @@
 <p>list-users works!</p>
+
+<ul *ngFor="let user of list">
+  <input
+    type="checkbox"
+    [(ngModel)]="user.isActive"
+    (click)="toggleActive(user)"
+  />
+  <li>
+    {{ user.email }}
+    <br />
+    <p>Active: {{ user.isActive }}</p>
+  </li>
+</ul>

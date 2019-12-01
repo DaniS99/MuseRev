@@ -25,6 +25,11 @@ export class RegisterComponent implements OnInit {
   onSignUp() {
     let url = "http://localhost:8000/api/users";
 
+    if (!this.email || !this.password) {
+      console.log("Please enter username and password fields");
+      return;
+    }
+
     const fillUser = {
       user: {
         email: this.email,

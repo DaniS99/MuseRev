@@ -75,6 +75,11 @@ export class DashboardComponent implements OnInit {
   onSong() {
     let holdRes;
 
+    if (!this.title || !this.track) {
+      console.log("Please enter title and artist fields");
+      return;
+    }
+
     const newSong = {
       header: this.header,
       title: this.title,

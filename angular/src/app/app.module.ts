@@ -28,7 +28,8 @@ import { DisplayComponent } from "./components/display/display.component";
 import { ListUsersComponent } from "./components/list-users/list-users.component";
 
 const appRoutes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "", component: AboutComponent },
+  { path: "home", component: HomeComponent },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   { path: "about", component: AboutComponent },

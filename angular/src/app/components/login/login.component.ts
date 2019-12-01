@@ -40,6 +40,32 @@ export class LoginComponent implements OnInit {
         this.token = response;
         this.authService.storeToken(response);
 
+        // Check isActive flag
+        let activeURL = "http://localhost:8000/api/users/checkActive";
+        let active;
+
+        let headers: HttpHeaders = new HttpHeaders();
+        headers = headers.append("Content-Type", "application/json");
+        headers = headers.append("Authorization", "Token " + this.token);
+
+        this.http.get(activeURL, { headers: headers }).subscribe(
+          response => {
+            if (response) {
+              active = response;
+              console.log(active);
+              return true;
+            } else {
+              console.log("Your acount is deactivated. Contact admin");
+              this.router.navigate(["about"]);
+              return false;
+            }
+          },
+          error => {
+            console.log("Not Admin");
+          }
+        );
+        this.router.navigate(["current"]);
+
         // Check to see whether isAdmin or not
         // check if isAdmin == true
         // Might want to change POST method to create users to return object ID
@@ -47,12 +73,12 @@ export class LoginComponent implements OnInit {
         let adminURL = "http://localhost:8000/api/users/checkAdmin";
         let check;
 
-        let headers: HttpHeaders = new HttpHeaders();
-        headers = headers.append("Content-Type", "application/json");
-        headers = headers.append("Authorization", "Token " + this.token);
+        //let headers: HttpHeaders = new HttpHeaders();
+        //headers = headers.append("Content-Type", "application/json");
+        //headers = headers.append("Authorization", "Token " + this.token);
 
         this.http.get(adminURL, { headers: headers }).subscribe(
-          async response => {
+          response => {
             if (response) {
               check = response;
               console.log(check);

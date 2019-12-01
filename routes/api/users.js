@@ -11,15 +11,15 @@ router.post("/", auth.optional, (req, res, next) => {
 		body: { user }
 	} = req;
 
-	//user = new Users({
-	//email: req.body.email,
-	//hash: req.body.hash,
-	//salt: req.body.salt,
-
-	//});
-
-	//res.send(user);
-
+	/*
+	if (Users.findOne(user.email)) {
+		return res.status(422).json({
+			errors: {
+				email: "Already exists"
+			}
+		});
+	}
+*/
 	if (!user.email) {
 		return res.status(422).json({
 			errors: {
@@ -121,6 +121,52 @@ router.get("/checkAdmin", auth.required, (req, res, next) => {
 
 		return res.send(bool);
 	});
+});
+
+router.get("/checkActive", auth.required, (req, res, next) => {
+	const {
+		payload: { id }
+	} = req;
+
+	return Users.findById(id).then(user => {
+		if (!user) {
+			return res.sendStatus(400);
+		}
+
+		var bool = Boolean(user.isActive);
+
+		return res.send(bool);
+	});
+});
+
+router.get("/listUsers", (req, res, next) => {
+	Users.find(function(err, user) {
+		if (err) return next(err);
+		//res.send("user.email");
+		res.send(user);
+		//res.send(user._id);
+	});
+});
+
+router.put("/active/:id", (req, res, next) => {
+	Users.findByIdAndUpdate(
+		// Copied from https://coursework.vschool.io/mongoose-crud/
+		// the id of the item to find
+		req.params.id,
+
+		// the change to be made
+		req.body,
+
+		// ask mongoose to return the updated version
+		{ new: true },
+
+		// the callback function
+		(err, todo) => {
+			// Handle any possible database errors
+			if (err) return res.status(500).send(err);
+			return res.send(todo);
+		}
+	);
 });
 
 module.exports = router;

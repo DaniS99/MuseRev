@@ -195,4 +195,21 @@ router.put("/:id", (req, res, next) => {
 	});
 });
 
+router.delete("/delete/:id", (req, res, next) => {
+	Songs.findByIdAndDelete(
+		// the id of the item to find
+		req.params.id,
+
+		// ask mongoose to return the updated version
+		{ new: true },
+
+		// the callback function
+		(err, todo) => {
+			// Handle any possible database errors
+			if (err) return res.status(500).send(err);
+			return res.send(todo);
+		}
+	);
+});
+
 module.exports = router;
