@@ -1,5 +1,4 @@
-# SE3316 Lab 5
-# MuseRev
+# SE3316 Lab 5 (MuseRev)
 
 Full stack web dev app
 
